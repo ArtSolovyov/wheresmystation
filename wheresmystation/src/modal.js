@@ -18,7 +18,7 @@ function MainModal() {
             <div className="welcomeMsg">International Space Station <span style={{color: "red"}}><br />GUI</span></div>
             <div className="btnWrapper" onClick={closeModal} style={{position: 'absolute', right: '0px', bottom: '0px', height: '140px', width: '140px'}}>
                     <img src={triangle} className="sbmtBtn"></img>
-                    <div className="sbmtText">OK</div>
+                    <div className="sbmtText">CLOSE</div>
             </div>
         </div>
     )

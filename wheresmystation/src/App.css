@@ -41,10 +41,14 @@ body {
   top: 33vh;
   height: 33vh;
   width: 33vw;
+
+  -webkit-box-shadow: 4px 4px 38px -12px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 4px 4px 38px -12px rgba(255, 255, 255, 1);
+  box-shadow: 4px 4px 38px -12px rgba(255, 255, 255, 1);
 }
 
 .closedModal {
-  left: 3vw;
+  left: 1vw;
   height: 5vh;
   width: 3vw;
   border-radius: 20%;
@@ -52,8 +56,7 @@ body {
 }
 
 .closedModal::after {
-  content: ' ?';
-  font-size: 2rem;
+  content: '';
 }
 
 .closedModal div {
@@ -73,25 +76,53 @@ body {
   bottom: 0px;
   height: 130px;
   width: 130px;
-}
+  overflow: hidden;
 
-.sbmtBtn:active, .sbmtBtn:hover {
-  transform: scale(1.2);
-  transition: transform 0.2s;
 }
 
 .sbmtText {
   font-family: fantasy;
   transform: rotateZ(-45deg);
   position: absolute;
-  left: 40%;
-  top: 40%;
+  left: 28%;
+  top: 37%;
   cursor: pointer;
 }
 
+.btnWrapper {
+  opacity: 0.8;
+}
+
 .btnWrapper:hover {
+  opacity: 1;
   color: red;
   font-size: 1.1rem;
+  transform: scale(1.2);
+  transition: transform 0.2s;
+  animation-name: shaker;
+  animation-duration: 0.1s;
+}
+
+@keyframes shaker {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(15deg);
+  }
+
+  50% {
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    transform: rotate(7deg);
+  }
 }
 
 
