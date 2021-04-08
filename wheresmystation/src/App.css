@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Monoton';
+  src: url(./fonts/Monoton-Regular.ttf) format('truetype');
+}
+
+body {
+  font-family: 'Monoton';
+}
+
 .App {
   margin-top: 1vh;
   display: block;
@@ -5,6 +14,7 @@
 
 #map {
   height: 98vh;
+  position: absolute;
 }
 
 #map.rolled {
@@ -18,6 +28,70 @@
   transition: width 0.8s, opacity 2s;
 }
 
+.zoom {
+  zoom: 2;
+  transition: zoom 1s;
+}
 
+.mainModal {
+  background-color: black;
+  color: white;
+  position: sticky;
+  left: 33vw;
+  top: 33vh;
+  height: 33vh;
+  width: 33vw;
+}
+
+.closedModal {
+  left: 3vw;
+  height: 5vh;
+  width: 3vw;
+  border-radius: 20%;
+  transition: all 0.3s;
+}
+
+.closedModal::after {
+  content: ' ?';
+  font-size: 2rem;
+}
+
+.closedModal div {
+  display: none;
+}
+
+.welcomeMsg {
+    margin-left: 3%;
+    width: 47%;
+    margin-top: 3%;
+    font-size: 30px;
+}
+
+.sbmtBtn {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 130px;
+  width: 130px;
+}
+
+.sbmtBtn:active, .sbmtBtn:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s;
+}
+
+.sbmtText {
+  font-family: fantasy;
+  transform: rotateZ(-45deg);
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  cursor: pointer;
+}
+
+.btnWrapper:hover {
+  color: red;
+  font-size: 1.1rem;
+}
 
 
