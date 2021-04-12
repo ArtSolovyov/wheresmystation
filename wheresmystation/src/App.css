@@ -41,10 +41,13 @@ body {
   top: 33vh;
   height: 33vh;
   width: 33vw;
+  z-index: 10;
 
   -webkit-box-shadow: 4px 4px 38px -12px rgba(255, 255, 255, 1);
   -moz-box-shadow: 4px 4px 38px -12px rgba(255, 255, 255, 1);
   box-shadow: 4px 4px 38px -12px rgba(255, 255, 255, 1);
+
+  transition: all 0.5s;
 }
 
 .closedModal {
@@ -56,7 +59,9 @@ body {
 }
 
 .closedModal::after {
-  content: '';
+  content: '?';
+  font-size: 2rem;
+  text-align: center;
 }
 
 .closedModal div {
@@ -123,6 +128,17 @@ body {
   75% {
     transform: rotate(7deg);
   }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  opacity: 0.2;
+  display: none;
 }
 
 
