@@ -1,21 +1,27 @@
 import React, {useState} from 'react';
 import triangle from './images/triangle.png';
 
-function MainModal({getModalState}) {
+function MainModal() {
 
     const closeModal = () => {
-        getModalState(false);
-        const modal = document.querySelector('.mainModal');
-        modal.classList.add('closedModal');
+        document.querySelector('.mainModal').classList.add('closedModal');
     }
 
     const openModal = (e) => {
-        const modal = document.querySelector('.mainModal');
-        if (e.target === modal && modal.classList.contains('closedModal')) {
-         modal.classList.remove('closedModal');
-         getModalState(true);
+        if (e.target === document.querySelector('.mainModal') && document.querySelector('.mainModal').classList.contains('closedModal')) {
+            document.querySelector('.mainModal').classList.remove('closedModal');
         }
     }
+
+    const escListener = (e) => {
+        if (e.key === 'Escape') {
+            document.querySelector('.mainModal').classList.toggle('closedModal');
+            console.log(1);
+        }
+    }
+
+    document.removeEventListener('keydown', escListener);
+    document.addEventListener('keydown', escListener);
 
     return (
         <>

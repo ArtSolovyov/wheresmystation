@@ -2,11 +2,7 @@ import React, {useState} from 'react';
 import getStationLocation from './apiService';
 import Sputnik from './images/earth-sputnik.png';
 
-const Station = ({isModalOpen}) => {
-
-    let style = {}
-
-    
+const Station = () => {
 
     const [data, setData] = useState({});
 
@@ -21,15 +17,15 @@ const Station = ({isModalOpen}) => {
             longPeak = 180;
 
         if (latitude > 0) {
-            latResult = 30 + (latitude / latPeak * 50);
+            latResult = 25 + (latitude / latPeak * 50);
         } else {
-            latResult = 30 - (Math.abs(latitude) / latPeak * 50);
+            latResult = 25 - (Math.abs(latitude) / latPeak * 50);
         }
 
         if (longitude > 0) {
-            longResult = 50 + (longitude / longPeak * 50);
+            longResult = 45 + (longitude / longPeak * 50);
         } else {
-            longResult = 50 - (Math.abs(longitude) / longPeak * 50);
+            longResult = 45 - (Math.abs(longitude) / longPeak * 50);
         }
         
         latResult = latResult.toFixed(2);
@@ -37,24 +33,25 @@ const Station = ({isModalOpen}) => {
 
         console.log(`широта: ${latResult}, долгота: ${longResult}`);
     }
-        
-    if (!data.iss_position) {
-        getStationLocation()
-        .then(src => setData(src))
-    }
 
-    if (data.iss_position) {
-        longitude = + data.iss_position.longitude;
-        latitude = + data.iss_position.latitude;
-        setPosition()
-    }
+        if (!data.iss_position) {
+            getStationLocation()
+            .then(src => setData(src))
+        }
+    
+        if (data.iss_position) {
+            longitude = + data.iss_position.longitude;
+            latitude = + data.iss_position.latitude;
+            setPosition()
+        }
+
+    
 
     console.log(latitude, longitude);
 
-    if (!isModalOpen) {
         return (
             <div classList="station">
-                <img src={Sputnik} style={{
+                <img src={Sputnik} className="stationIcon" style={{
                     height: "64px",
                     width: "64px",
                     position: "absolute",
@@ -62,14 +59,7 @@ const Station = ({isModalOpen}) => {
                     left: `${longResult}%`,
                     }}></img>
             </div>
-        )
-    } else {
-        return (
-            <div></div>
-        )
-    }
-
-    
+        )    
 }
 
 export default Station;
