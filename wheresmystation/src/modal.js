@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import triangle from './images/triangle.png';
 
 function MainModal() {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import getStationLocation from './apiService';
+import Api from './apiService';
 import Sputnik from './images/earth-sputnik.png';
 
 const Station = () => {
@@ -19,7 +19,7 @@ const Station = () => {
         if (latitude > 0) {
             latResult = 25 + (latitude / latPeak * 50);
         } else {
-            latResult = 25 - (Math.abs(latitude) / latPeak * 50);
+            latResult = 30 - (Math.abs(latitude) / latPeak * 50);
         }
 
         if (longitude > 0) {
@@ -35,7 +35,7 @@ const Station = () => {
     }
 
         if (!data.iss_position) {
-            getStationLocation()
+            Api.getStationLocation()
             .then(src => setData(src))
         }
     
@@ -50,8 +50,8 @@ const Station = () => {
     console.log(latitude, longitude);
 
         return (
-            <div classList="station">
-                <img src={Sputnik} className="stationIcon" style={{
+            <div className="station">
+                <img src={Sputnik} className="stationIcon" alt='' style={{
                     height: "64px",
                     width: "64px",
                     position: "absolute",
