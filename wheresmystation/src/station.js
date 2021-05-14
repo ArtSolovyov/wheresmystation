@@ -34,18 +34,16 @@ const Station = () => {
         console.log(`широта: ${latResult}, долгота: ${longResult}`);
     }
 
-        if (!data.iss_position) {
-            Api.getStationLocation()
-            .then(src => setData(src))
-        }
-    
-        if (data.iss_position) {
-            longitude = + data.iss_position.longitude;
-            latitude = + data.iss_position.latitude;
-            setPosition()
-        }
+    if (!data.iss_position) {
+        Api.getStationLocation()
+        .then(src => setData(src))
+    }
 
-    
+    if (data.iss_position) {
+        longitude = + data.iss_position.longitude;
+        latitude = + data.iss_position.latitude;
+        setPosition()
+    }
 
     console.log(latitude, longitude);
 

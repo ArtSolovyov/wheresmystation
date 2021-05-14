@@ -35,6 +35,11 @@ body {
   width: 98vw;
   opacity: 1;
   transition: width 0.8s, opacity 2s;
+
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none; 
 }
 
 .zoom {
@@ -175,4 +180,18 @@ body {
   }
 }
 
+.infoPanel {
+    background: rgb(170, 170, 170);
+    width: 20%;
+    position: absolute;
+    bottom: 5px;
+    font-size: 15px;
+    border-radius: 0rem 5rem 3rem 0rem;
+}
+
+.info {
+  margin: 0.5rem;
+  color: #fff;
+  font-family: fantasy;
+}
 

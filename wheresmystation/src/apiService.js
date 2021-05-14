@@ -8,6 +8,8 @@ const Api = {
     getInfo: async function() {
       const response = await fetch('http://api.open-notify.org/astros.json');
       const source = await response.json();
+
+      console.log(source);
       return source;  
     }
 }
